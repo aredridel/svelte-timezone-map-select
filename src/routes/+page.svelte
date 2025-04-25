@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Map from "../WorldMap.svelte";
+  import Map from "$lib/WorldMap.svelte";
 
   let timezone = $state("");
 </script>
