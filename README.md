@@ -14,9 +14,9 @@ This is a svelte component which lets you select a timezone on world map.
 
 ```svelte
 <script lang="ts">
-import { TimeZoneSelect} from 'svelte-timezone-map-select';
+  import { TimeZoneSelect } from "svelte-timezone-map-select";
 
-let timezone = $state("America/New_York");
+  let timezone = $state("America/New_York");
 </script>
 
 <TimeZoneSelect bind:timezone />
