@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org/
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3.0.0
+        with:
+          version: 10
+
+      - name: Install
+        run: pnpm install
+      - name: Lint
+        run: pnpm run lint
+
+      # Run the svelte check action
+      - name: Svelte Check
+        uses: aredridel/svelte-check-action@v1-anno
+        with:
+          failOnError: true
+          filterChanges: false
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Tests
+        run: pnpm run test
