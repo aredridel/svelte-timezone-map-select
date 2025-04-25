@@ -1,7 +1,11 @@
 name: Build
 
 on:
-  - pull_request
+  pull_request:
+  push:
+    branches:
+      - "main"
+
 
 jobs:
   build:
@@ -29,11 +33,11 @@ jobs:
 
       # Run the svelte check action
       - name: Svelte Check
-        uses: aredridel/svelte-check-action@v1-anno
+        uses: aredridel/svelte-check-action@v1
         with:
           failOnError: true
           filterChanges: false
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Tests
         run: pnpm run test
