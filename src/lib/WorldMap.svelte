@@ -61,7 +61,7 @@
 </script>
 
 <svg viewBox="0 0 800 320" width={700}>
-  <g style="cursor: 'pointer'" transform="matrix(2 0 0 -2 400 200)">
+  <g style="cursor: pointer" transform="matrix(2 0 0 -2 400 200)">
     {#each tzPaths as { id, generatedPath, opacity, fill, stroke } (id)}
       <path
         role="button"
