@@ -10,7 +10,7 @@
 
   type PolygonFeature = GeoJSON.Feature<GeoJSON.Polygon, GeoJSON.GeoJsonProperties>;
 
-  const createTimeZonePolygonFeatures = (): PolygonFeature[] => {
+  function createTimeZonePolygonFeatures(): PolygonFeature[] {
     // Read world map for timezones.
     // See https://github.com/evansiroky/timezone-boundary-builder
     //     https://github.com/topojson/topojson
@@ -18,7 +18,7 @@
     const tzDataFeature = topojson.feature(tzData, tzData.objects.timezones);
     const features = (tzDataFeature as { features: PolygonFeature[] }).features;
     return features;
-  };
+  }
 
   function onclick(e: MouseEvent) {
     if (!(e.target instanceof Element)) return;
@@ -39,39 +39,24 @@
   const timeZonePolygonFeatures = createTimeZonePolygonFeatures();
   const tzPaths = $derived(
     timeZonePolygonFeatures.map((d: PolygonFeature) => {
-      const id = `${d.properties?.id}`;
-      let opacity;
-      let stroke;
-      let fill;
-      if (id === timezone) {
-        opacity = 1.0;
-        stroke = "darkgrey";
-        fill = "darkgrey";
-      } else {
-        opacity = 0.4;
-        stroke = "lightgrey";
-        fill = "lightgrey";
-      }
+      const id = `${d.properties!.id}`;
+      const generatedPath = pathGenerator(d);
 
-      const generatedPath = pathGenerator(d) || undefined;
-
-      return { id, generatedPath, opacity, fill, stroke };
+      return { id, generatedPath };
     })
   );
 </script>
 
 <svg viewBox="0 0 800 320" width={700}>
   <g style="cursor: pointer" transform="matrix(2 0 0 -2 400 200)">
-    {#each tzPaths as { id, generatedPath, opacity, fill, stroke } (id)}
+    {#each tzPaths as { id, generatedPath } (id)}
       <path
         role="button"
+        class:selected={id === timezone}
         tabindex="0"
         {id}
         data-testid={id}
         d={generatedPath}
-        {opacity}
-        {fill}
-        {stroke}
         stroke-width="0.5"
         {onclick}
         {onkeydown}
@@ -81,3 +66,18 @@
     {/each}
   </g>
 </svg>
+
+<style>
+  @layer defaults {
+    path {
+      opacity: 0.4;
+      stroke: lightgrey;
+      fill: lightgrey;
+    }
+    .selected {
+      opacity: 1;
+      stroke: darkgrey;
+      fill: darkgrey;
+    }
+  }
+</style>
