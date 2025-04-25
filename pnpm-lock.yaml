@@ -7,6 +7,16 @@ settings:
 importers:
 
   .:
+    dependencies:
+      d3-geo:
+        specifier: ^3.1.1
+        version: 3.1.1
+      geojson:
+        specifier: ^0.5.0
+        version: 0.5.0
+      topojson-client:
+        specifier: ^3.1.0
+        version: 3.1.0
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^6.0.0
@@ -44,12 +54,6 @@ importers:
       '@types/topojson-specification':
         specifier: ^1.0.5
         version: 1.0.5
-      d3-geo:
-        specifier: ^3.1.1
-        version: 3.1.1
-      geojson:
-        specifier: ^0.5.0
-        version: 0.5.0
       jsdom:
         specifier: ^26.0.0
         version: 26.1.0
@@ -68,9 +72,6 @@ importers:
       svelte-check:
         specifier: ^4.0.0
         version: 4.1.6(picomatch@4.0.2)(svelte@5.28.2)(typescript@5.8.3)
-      topojson-client:
-        specifier: ^3.1.0
-        version: 3.1.0
       typescript:
         specifier: ^5.0.0
         version: 5.8.3
