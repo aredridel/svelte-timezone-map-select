@@ -47,7 +47,7 @@
   );
 </script>
 
-<svg viewBox="0 0 800 320" width={700}>
+<svg viewBox="0 0 800 320">
   <g style="cursor: pointer" transform="matrix(2 0 0 -2 400 200)">
     {#each tzPaths as { id, generatedPath } (id)}
       <path
