@@ -32,6 +32,7 @@ jobs:
 
       # Run the svelte check action
       - name: Svelte Check
+        if: github.event_name == 'pull_request'
         uses: aredridel/svelte-check-action@v1
         with:
           failOnError: true
