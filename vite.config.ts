@@ -4,8 +4,9 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [sveltekit()],
+  // @ts-expect-error test is from vitest and the types don't quite align
   test: {
-    workspace: [
+    projects: [
       {
         extends: "./vite.config.ts",
         plugins: [svelteTesting()],
