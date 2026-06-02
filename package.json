@@ -1,6 +1,6 @@
 {
   "name": "@aredridel/svelte-timezone-map-select",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Aria Stewart <aredridel@dinhe.net>",
   "contributors": [
     "Ken Miyashita <kmiyashita23@gmail.com>"
@@ -51,31 +51,26 @@
     "svelte": "^5.0.0"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "^7.0.0",
-    "@sveltejs/kit": "^2.52.2",
+    "@sveltejs/adapter-auto": "^7.0.1",
+    "@sveltejs/kit": "^2.61.1",
     "@sveltejs/package": "^2.5.7",
-    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/svelte": "^5.3.1",
     "@types/d3-geo": "^3.1.0",
     "@types/geojson": "^7946.0.16",
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.9.1",
     "@types/topojson": "^3.2.6",
     "@types/topojson-client": "^3.1.5",
     "@types/topojson-specification": "^1.0.5",
-    "jsdom": "^27.4.0",
-    "prettier": "^3.8.1",
-    "prettier-plugin-svelte": "^3.4.1",
-    "publint": "^0.3.17",
-    "svelte": "^5.53.5",
-    "svelte-check": "^4.3.5",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1",
-    "vitest": "^4.0.18"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
+    "jsdom": "^29.1.1",
+    "prettier": "^3.8.3",
+    "prettier-plugin-svelte": "^3.5.2",
+    "publint": "^0.3.21",
+    "svelte": "^5.56.0",
+    "svelte-check": "^4.5.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
   }
 }
